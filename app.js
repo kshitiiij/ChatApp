@@ -41,6 +41,8 @@ app.get("/", (req,res) => {
 
 mongoose.connect(process.env.MONGODB_URL).then(() => {
     console.log("db connected successfully");
+    server.listen(PORT, () => console.log(`${PORT} is listening!`));
+
 }, (err) => {
     //err handle;
 });
@@ -63,6 +65,6 @@ app.use(function(req, res, next) {
 // app.use("/",routes);
 routes(app);
 
-server.listen(PORT, () => console.log(`${PORT} is listening!`));
+// server.listen(PORT, () => console.log(`${PORT} is listening!`));
 
 module.exports = app;

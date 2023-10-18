@@ -16,10 +16,7 @@ const Dashboard = () => {
     const sendMessage = (e) => {
         e.preventDefault();
         setMessages(messages => [...messages,{message,name}])
-        if(message.length>0) {
-            console.log("notblank");
-            socket.emit("send_message" , {message , name});
-        }
+        socket.emit("send_message" , {message , name});
         setMessage('');
     }
 

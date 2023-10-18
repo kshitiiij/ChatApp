@@ -1,6 +1,6 @@
 import io from "socket.io-client";
 import { useLocation } from "react-router-dom";
-import {useState,useEffect} from 'react';
+import {useState,useEffect,useRef} from 'react';
 
 const socket = io.connect("https://chatapp-nxzf.onrender.com")
 
@@ -11,6 +11,7 @@ const Dashboard = () => {
 
     const [message, setMessage] = useState('');
     const [messages,setMessages] = useState([]);
+    const mes = useRef(null);
     
 
     const sendMessage = (e) => {
@@ -19,6 +20,15 @@ const Dashboard = () => {
         socket.emit("send_message" , {message , name});
         setMessage('');
     }
+
+    useEffect(() => {
+        if (mes) {
+        mes.current.addEventListener('DOMNodeInserted', event => {
+            const { currentTarget: target } = event;
+            target.scroll({ top: target.scrollHeight, behavior: 'smooth' });
+        });
+        }
+    }, []);
 
      useEffect(() => {
             socket.on("received_message", (data)=> {
@@ -33,7 +43,7 @@ const Dashboard = () => {
     return (
         <div className="message-container">
             <h1>ChatApp</h1>
-            <ul className="chat-container" id="chatList">
+            <ul className="chat-container" id="chatList" ref={mes}>
                 {messages.map(data => (
                     <div key={data.id}>
                     {name === data.name ? (

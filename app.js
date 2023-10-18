@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const io = new Server(server, {
     cors : {
-        origin : "https://chatappbykshitij.netlify.app/",
+        origin : "*",
         methods : ["GET","POST"],
     },
 })

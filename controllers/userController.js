@@ -45,7 +45,7 @@ const signin = (req,res) => {
         // console.log(user.email,user.fullName);
         // the jwt.sign method takes the payload or the token as first param and the secret key as the second param
         const accessToken = jwt.sign({ email : user.email , fullName : user.fullName , _id : user._id}, 'RESTFULAPIs');
-        return res.json({token :accessToken });
+        return res.json({token : accessToken });
     });
 }
 

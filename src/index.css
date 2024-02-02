@@ -6,7 +6,8 @@
   margin: 0;
   padding: 0;
   font-family: "Quicksand";
-  color: #333;
+  font-weight: bold;
+  color: #07325f;
 }
 
 body {
@@ -66,11 +67,6 @@ h1{
 h3 {
   font-size: 40px;
   color: #1a7db7;
-  /* margin-bottom: 25px; */
-  /* margin-left: 5px; */
-  /* text-align:left; */
-  /* display: flex; */
-  /* justify-content: flex-start; */
 }
 
 .login input,
@@ -124,17 +120,9 @@ h3 {
 
 
 .message-container {
-  /* background-color: #964949;
-  width: 100dvw;
-  height: 100dvh;
-  display: flex;
-  justify-content: center;
-  overflow: hidden; */
-
   background-color: #ffffff;
   width: 100dvw;
   height: 100dvh;
-  /* max-width: 1200px; */
   display: flex;
   justify-content: center;
 }
@@ -154,10 +142,6 @@ h3 {
  }
 
 .chat-container {
-  /* 
-  height: 68%;
-
-*/
   background-color: #fff;
   position: absolute;
   list-style: none;
@@ -170,7 +154,6 @@ h3 {
   max-width: auto;
   overflow: scroll;
   scroll-behavior: smooth;
-  
 }
 
 .send-container {
@@ -198,7 +181,6 @@ h3 {
   .send-button {
       margin: 0px;
       padding: 0px 0px;
-      /* width: 20vw; */
   }
   .chat-container {
     height: 75%;
@@ -241,7 +223,6 @@ h3 {
   right: 0px;
   left: 0px;
   width: 0px;
-  /* height: 0px; */
   border: 5px solid #fff;
   border-left-color: transparent;
   border-bottom-color: transparent;
@@ -256,12 +237,10 @@ h3 {
 .self .msg {
   order: 1;
   background-color: #0498ee;
-  /* border-bottom-right-radius: 0px; */
   box-shadow: 1px 2px 0px #d4d4d4;
 }
 
 .msg {
- 
   min-width: fit-content;
   padding: 10px;
   border-radius: 10px;
@@ -278,15 +257,12 @@ h3 {
   color : #fff;
 }
 
-
-
 .send-button {
   background: #1a7db7;
   color: #fff;
   border: 0;
   margin: 10px;
   padding: 10px 30px;
-  /* margin-bottom: 10px; */
   border-radius: 8px;
   cursor: pointer;
 }

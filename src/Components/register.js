@@ -14,13 +14,15 @@ const Register = () => {
         const user = {fullName,email,password};
         setName(''); setEmail(''); setPassword('');
         console.log(user);
+
         fetch('https://chatapp-nxzf.onrender.com/auth/register', {
             method : 'POST',
             headers : {'Content-Type' : 'application/json'} ,
             body : JSON.stringify(user)
         }).then(() => {
             console.log("user registered!");
-            navigate("/dashboard" , {state : {name : fullName}});
+            navigate("/login");
+
         })
 
     }
@@ -53,7 +55,6 @@ const Register = () => {
                         value = {password}
                     />
                     <button className='register-button'>Register</button>
-                    {/* <input type="submit" value="Submit" /> */}
                 </form>
             </div>
             
@@ -62,29 +63,3 @@ const Register = () => {
 }
 
 export default Register;
-
-
-
-// <form onSubmit={handleSubmit}>
-//         <label>Blog Title:</label>
-//         <input 
-//             type="text" 
-//             required
-//             onChange={(e) =>setTitle(e.target.value)}
-//             value = {title}
-//         ></input>
-//         <label>Blog Body:</label>
-//         <textarea 
-//             required
-//             value = {body}
-//             onChange = {(e) => setBody(e.target.value)}
-//         ></textarea>
-//         <label>Blog Author:</label>
-//         <input 
-//             type="text" 
-//             required
-//             onChange={(e) =>setAuthor(e.target.value)}
-//             value = {author}
-//         ></input>
-//         <button>Add Blog</button>
-//             </form>

@@ -63,6 +63,16 @@ h1{
     margin-bottom: 30px;
 }
 
+h3 {
+  font-size: 40px;
+  color: #1a7db7;
+  /* margin-bottom: 25px; */
+  /* margin-left: 5px; */
+  /* text-align:left; */
+  /* display: flex; */
+  /* justify-content: flex-start; */
+}
+
 .login input,
 .login textarea,
 .login select, 
@@ -95,12 +105,12 @@ h1{
 }
 
 .message-container div {
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 5px;
 }
 
 .message-container div:nth-child(2n) {
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .message-input {
@@ -114,6 +124,13 @@ h1{
 
 
 .message-container {
+  /* background-color: #964949;
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  overflow: hidden; */
+
   background-color: #ffffff;
   width: 100dvw;
   height: 100dvh;
@@ -122,7 +139,26 @@ h1{
   justify-content: center;
 }
 
+ .heading {
+   display: flex;
+   flex-direction: column;
+ }
+
+ .appname {
+   margin: 0px;
+ }
+
+ .room {
+   margin: 0px;
+   align-self: center;
+ }
+
 .chat-container {
+  /* 
+  height: 68%;
+
+*/
+  background-color: #fff;
   position: absolute;
   list-style: none;
   background: none;
@@ -134,9 +170,11 @@ h1{
   max-width: auto;
   overflow: scroll;
   scroll-behavior: smooth;
+  
 }
 
 .send-container {
+  background-color: #fff;
   position: fixed;
   padding: 30px 0px;
   bottom: 0;
@@ -174,6 +212,17 @@ h1{
   display: flex;
 }
 
+.host {
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.host .msg {
+  order: 1;
+  background-color: #b0bcc3;
+  box-shadow: -1px 2px 0px #d4d4d4;
+}
+
 .other {
   justify-content: flex-start;
   align-items: flex-end;
@@ -181,7 +230,7 @@ h1{
 
 .other .msg {
   order: 1;
-  /* border-top-left-radius: 0px; */
+  background-color: #b0bcc3;
   box-shadow: -1px 2px 0px #d4d4d4;
 }
 
@@ -190,9 +239,9 @@ h1{
   position: relative;
   top: 0px;
   right: 0px;
-  left: 40px;
+  left: 0px;
   width: 0px;
-  height: 0px;
+  /* height: 0px; */
   border: 5px solid #fff;
   border-left-color: transparent;
   border-bottom-color: transparent;
@@ -201,16 +250,18 @@ h1{
 .self {
   justify-content: flex-end;
   align-items: flex-end;
+  
 }
 
 .self .msg {
   order: 1;
+  background-color: #0498ee;
   /* border-bottom-right-radius: 0px; */
   box-shadow: 1px 2px 0px #d4d4d4;
 }
 
 .msg {
-  background: white;
+ 
   min-width: fit-content;
   padding: 10px;
   border-radius: 10px;
@@ -221,6 +272,10 @@ h1{
   font-size: 0.8rem;
   margin: 0 0 0.2rem 0;
   color: #1a7db7;
+}
+
+.self p {
+  color : #fff;
 }
 
 
@@ -235,3 +290,19 @@ h1{
   border-radius: 8px;
   cursor: pointer;
 }
+
+.self .message {
+  color : #fff;
+}
+
+.other p {
+  color : rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.message {
+  padding: 4px 3px;
+ }
+
+
+

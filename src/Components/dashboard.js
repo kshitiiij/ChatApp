@@ -1,13 +1,11 @@
-import io from "socket.io-client";
 import { useLocation } from "react-router-dom";
 import {useState,useEffect,useRef} from 'react';
-
-const socket = io.connect("https://chatapp-nxzf.onrender.com")
+import {socket} from '../Util/socket';
 
 const Dashboard = () => {
     //used to get the data passed with the navigate for the name of the user
     const {state} = useLocation();
-    const {name} = state;
+    const {name,room} = state;
 
     const [message, setMessage] = useState('');
     const [messages,setMessages] = useState([]);
@@ -31,6 +29,10 @@ const Dashboard = () => {
     }, []);
 
      useEffect(() => {
+            socket.on("message", (data) => {
+                setMessages(messages => [...messages,data]);
+            })
+
             socket.on("received_message", (data)=> {
                 setMessages(messages => [...messages,data]);
             })
@@ -42,7 +44,11 @@ const Dashboard = () => {
 
     return (
         <div className="message-container">
-            <h1>ChatApp</h1>
+            <div className="heading">
+                <h1 className="appname">ChatApp</h1>
+                <h2 className="room">Room {room}</h2>
+            </div>
+            
             <ul className="chat-container" id="chatList" ref={mes}>
                 {messages.map(data => (
                     <div key={data.id}>
@@ -50,14 +56,14 @@ const Dashboard = () => {
                         <li className="self">
                         <div className="msg">
                             <p>{data.name}</p>
-                            <div className="message"> {data.message}</div>
+                            <h4 className="message">{data.message}</h4>
                         </div>
                         </li>
                     ) : (
-                        <li className="other">
+                        <li className={data.name === "host" ? "host" : "other"}>
                         <div className="msg">
-                            <p>{data.name}</p>
-                        <div className="message"> {data.message} </div>
+                            {data.name !== "host" && <p>{data.name}</p>}  
+                            <h4 className="message">{data.message}</h4>
                         </div>
                         </li>
                     )}

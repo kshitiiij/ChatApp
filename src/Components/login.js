@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import {socket} from '../Util/socket';
 
 const Login = () => {
 
-    // const [fullName,setName] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+    const [room,setRoom] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const credential = {email,password};
-        console.log(credential);
-        setEmail('');   setPassword('');
+        const credential = {email,password,room};
+        setEmail('');   
+        setPassword('');    
+        setRoom('');
 
         fetch('https://chatapp-nxzf.onrender.com/auth/signin', {
             method : 'POST',
@@ -32,10 +34,10 @@ const Login = () => {
                 }
             }).then(res => res.json())
             .then(res => {
-                console.log(res.fullName);
                 const username =res.fullName;
                 if(username){
-                    navigate("/dashboard" , {state : {name : username}});
+                    socket.emit("join_room", {username,room});
+                    navigate("/dashboard" , {state : {name : username, room : room}});
                 } else {
                     alert("Please enter valid credential.")
                 }
@@ -64,6 +66,13 @@ const Login = () => {
                         required    placeholder="Password"
                         onChange={e => setPassword(e.target.value)}
                         value = {password}
+                    />
+                    <label> Room: </label>
+                    <input 
+                        type="text" 
+                        required    placeholder="Room"
+                        onChange={e => setRoom(e.target.value)}
+                        value = {room}
                     />
                     <button className="login-button">Login</button>
                     {/* <input type="submit" value="Submit" /> */}

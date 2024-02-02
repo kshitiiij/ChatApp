@@ -7,7 +7,7 @@
   padding: 0;
   font-family: "Quicksand";
   font-weight: bold;
-  color: #07325f;
+  color: #000000;
 }
 
 body {
@@ -60,8 +60,12 @@ body {
 
 h1{
     font-size: 55px;
-    color: #1a7db7;
+    color: #0498ee;
     margin-bottom: 30px;
+}
+
+h2 {
+  color : #0498ee;
 }
 
 h3 {
@@ -201,18 +205,19 @@ h3 {
 
 .host .msg {
   order: 1;
-  background-color: #b0bcc3;
+  background-color: #d4dce1;
   box-shadow: -1px 2px 0px #d4d4d4;
 }
 
 .other {
+  margin-left: 65px;
   justify-content: flex-start;
   align-items: flex-end;
 }
 
 .other .msg {
   order: 1;
-  background-color: #b0bcc3;
+  background-color: #9facb4;
   box-shadow: -1px 2px 0px #d4d4d4;
 }
 
@@ -229,9 +234,9 @@ h3 {
 }
 
 .self {
+  margin-right: 50px;
   justify-content: flex-end;
   align-items: flex-end;
-  
 }
 
 .self .msg {
@@ -250,7 +255,7 @@ h3 {
 .msg p {
   font-size: 0.8rem;
   margin: 0 0 0.2rem 0;
-  color: #1a7db7;
+  color: #0498ee;
 }
 
 .self p {
@@ -258,7 +263,7 @@ h3 {
 }
 
 .send-button {
-  background: #1a7db7;
+  background: #0498ee;
   color: #fff;
   border: 0;
   margin: 10px;
